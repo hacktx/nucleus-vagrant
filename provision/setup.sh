@@ -20,14 +20,27 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password_again passwo
 apt-get install mysql-server -y
 
 # setup nginx
-cp /var/www/provision/config/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
+cp /vagrant/provision/config/nginx_vhost /etc/nginx/sites-available/nginx_vhost > /dev/null
 ln -s /etc/nginx/sites-available/nginx_vhost /etc/nginx/sites-enabled/
 rm -rf /etc/nginx/sites-available/default
 service nginx restart
 
 # setup mysql
 echo "CREATE DATABASE nucleus" | mysql -uroot -pPassword
-mysql -uroot -pPassword nucleus < /var/www/provision/config/schema.sql
+mysql -uroot -pPassword nucleus < /vagrant/provision/config/schema.sql
 
 # clone nucleus
 git clone https://github.com/hacktx/nucleus.git
+mkdir /var/www
+ln -s $(pwd)/nucleus /var/www/
+
+# setup composer
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+# setup nucleus
+cd nucleus
+composer install
+mkdir build
+./vendor/bin/robo build
+cp /vagrant/provision/config/config.ini .
