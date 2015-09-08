@@ -1,4 +1,5 @@
 # Nucleus Vagrant
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
 ## Background
 Vagrant and Virtualbox is an easy way to develop on projects cross-platform without having to worry about environment 
