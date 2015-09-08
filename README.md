@@ -1,4 +1,4 @@
-# Nuclues Vagrant
+# Nucleus Vagrant
 
 ## Background
 Vagrant and Virtualbox is an easy way to develop on projects cross-platform without having to worry about environment 
@@ -18,4 +18,4 @@ The first time you run `vagrant up`, Vagrant will download the required virtual 
 
 Once the VM is running, you can access it with `vagrant ssh`. The project directory is located at `~/nucleus` in the home diretory.
 
-To access the running serice, simply navigate your browser on the host machine to `http://localhost:8391`. This port can be configed in the [Vagrantfile](Vagrantfile).
+To access the running serice, simply navigate your browser on the host machine to [http://localhost:8391](http://localhost:8391). This port can be configed in the [Vagrantfile](Vagrantfile).
