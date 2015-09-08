@@ -44,3 +44,7 @@ composer install
 mkdir build
 ./vendor/bin/robo build
 cp /vagrant/provision/config/config.ini .
+
+# change permissions
+cd ..
+chown -R vagrant:vagrant nucleus
