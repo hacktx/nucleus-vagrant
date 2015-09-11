@@ -30,21 +30,15 @@ echo "CREATE DATABASE nucleus" | mysql -uroot -pPassword
 mysql -uroot -pPassword nucleus < /vagrant/provision/config/schema.sql
 
 # clone nucleus
-git clone https://github.com/hacktx/nucleus.git
-mkdir /var/www
-ln -s $(pwd)/nucleus /var/www/
+git clone https://github.com/hacktx/nucleus.git /vagrant/nucleus
 
 # setup composer
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 # setup nucleus
-cd nucleus
+cd /vagrant/nucleus
 composer install
 mkdir build
 ./vendor/bin/robo build
 cp /vagrant/provision/config/config.ini .
-
-# change permissions
-cd ..
-chown -R vagrant:vagrant nucleus
