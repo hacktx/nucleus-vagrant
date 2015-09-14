@@ -42,3 +42,6 @@ composer install
 mkdir build
 ./vendor/bin/robo build
 cp /vagrant/provision/config/config.ini .
+
+# Reboot nginx for changes to take effect
+service nginx restart
