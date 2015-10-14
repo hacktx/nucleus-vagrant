@@ -39,7 +39,6 @@ mv composer.phar /usr/local/bin/composer
 # setup nucleus
 cd /vagrant/nucleus
 composer install
-mkdir build
 ./vendor/bin/robo build
 cp /vagrant/provision/config/config.ini .
 
