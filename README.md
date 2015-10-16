@@ -19,4 +19,4 @@ The first time you run `vagrant up`, Vagrant will download the required virtual 
 
 Once the VM is running, you can edit nucleus inside of the new `nucleus` folder in the folder containing the Vagrantfile on the host machine. if any configurations to the VM environment are necessary, you can access it by running `vagrant ssh`. Inside of the VM, the nucleus project directory is located at `/vagrant/nucleus`.
 
-To access the running serice, simply navigate your browser on the host machine to [http://localhost:8391](http://localhost:8391). This port can be configured in the [Vagrantfile](Vagrantfile).
+To access the running serice, simply navigate your browser on the host machine to [http://localhost:8931](http://localhost:8391). This port can be configured in the [Vagrantfile](Vagrantfile).
