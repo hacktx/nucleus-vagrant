@@ -36,9 +36,15 @@ git clone https://github.com/hacktx/nucleus.git /vagrant/nucleus
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
+# Setup nodejs and gulp
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install nodejs -y
+npm install -g gulp
+
 # setup nucleus
 cd /vagrant/nucleus
 composer install
+npm install
 ./vendor/bin/robo build
 cp /vagrant/provision/config/config.ini .
 
